@@ -20,24 +20,20 @@
 // storeSelectedValue();
 
 
-
-
-//   Uzduotis Nr.3
-const doc = document;
-const toDoListHeader = doc.createElement("h1")
+const toDoListHeader = document.createElement("h1")
 toDoListHeader.textContent = "To Do List"
 toDoListHeader.style.textAlign = "center"
-const div = doc.createElement("div");
-const forma = doc.createElement("form");
-const firstInt = doc.createElement("input");
-const secondInt = doc.createElement("select");
-const highOption = doc.createElement("option");
-const mediumOption = doc.createElement("option");
-const lowOption = doc.createElement("option");
-const appendBtn = doc.createElement("button");
-const table = doc.createElement("table");
-const thead = doc.createElement("thead");
-const tbody = doc.createElement("tbody");
+const div = document.createElement("div");
+const forma = document.createElement("form");
+const firstInt = document.createElement("input");
+const secondInt = document.createElement("select");
+const highOption = document.createElement("option");
+const mediumOption = document.createElement("option");
+const lowOption = document.createElement("option");
+const appendBtn = document.createElement("button");
+const table = document.createElement("table");
+const thead = document.createElement("thead");
+const tbody = document.createElement("tbody");
 
 firstInt.style.backgroundColor = "pink";
 firstInt.style.width = "300px";
@@ -65,14 +61,14 @@ table.appendChild(tbody);
 thead.innerHTML =
   "<tr><th id='uzduotisHeader'>Užduotis</th><th id='svarbaHeader'>Svarba</th><th id='deleteHeader'></th></tr>";
 
-doc.getElementById("deleteHeader").textContent = "";
+document.getElementById("deleteHeader").textContent = "";
 
-doc.getElementById("uzduotisHeader").style.paddingRight = "50px";
-doc.getElementById("svarbaHeader").style.paddingRight = "50px";
-doc.getElementById("uzduotisHeader").style.paddingTop = "50px";
-doc.getElementById("svarbaHeader").style.paddingTop = "50px";
-doc.getElementById("uzduotisHeader").style.borderBottom = "2px solid black";
-doc.getElementById("svarbaHeader").style.borderBottom = "2px solid black";
+document.getElementById("uzduotisHeader").style.paddingRight = "50px";
+document.getElementById("svarbaHeader").style.paddingRight = "50px";
+document.getElementById("uzduotisHeader").style.paddingTop = "50px";
+document.getElementById("svarbaHeader").style.paddingTop = "50px";
+document.getElementById("uzduotisHeader").style.borderBottom = "2px solid black";
+document.getElementById("svarbaHeader").style.borderBottom = "2px solid black";
 
 table.style.borderBottom = "2px solid black";
 
@@ -127,17 +123,17 @@ function updateTable() {
   }
 
   tasks.forEach((task, index) => {
-    const newRow = doc.createElement("tr");
+    const newRow = document.createElement("tr");
 
-    const cell1 = doc.createElement("td");
+    const cell1 = document.createElement("td");
     cell1.textContent = task.firstInputValue;
     cell1.style.borderRight = "2px solid black";
 
-    const cell2 = doc.createElement("td");
+    const cell2 = document.createElement("td");
     cell2.textContent = task.secondInputValue;
 
-    const checkboxCell = doc.createElement("td");
-    const checkbox = doc.createElement("input");
+    const checkboxCell = document.createElement("td");
+    const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
     checkbox.checked = checkedStates[index];
@@ -157,8 +153,8 @@ function updateTable() {
 
     checkboxCell.appendChild(checkbox);
 
-    const deleteCell = doc.createElement("td");
-    const deleteButton = doc.createElement("button");
+    const deleteCell = document.createElement("td");
+    const deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
     deleteButton.style.borderRadius = "50px";
     deleteButton.style.backgroundColor = "red";
