@@ -1,67 +1,38 @@
-// "use strict";
+"use strict";
 
-// // const priorityValue = document.getElementById('priority').value
-// // console.log(priorityValue)
+const toDoListContainer = document.createElement("div");
+const toDoListH1 = document.createElement("h1")
+const toDoForm = document.createElement("form");
+const toDoInput = document.createElement("input");
+const toDoPriority = document.createElement("select");
+const toDoPriorityLow = document.createElement("option");
+const toDoPriorityMedium = document.createElement("option");
+const toDoPriorityHigh = document.createElement("option");
+const addToListButton = document.createElement("button");
 
-// const selectedValue = document.getElementById('priority');
-
-// // Function to handle storing the selected value in local storage
-// function storeSelectedValue() {
-//   const selectedValues = selectedValue.value;
-//   localStorage.setItem('selectedValue', selectedValues);
-// }
-
-// // Add an event listener to the select element for the 'change' event
-// selectedValue.addEventListener('change', storeSelectedValue);
-
-
-
-// // Call the function initially to store the default selected value (if needed)
-// storeSelectedValue();
-
-
-const toDoListHeader = document.createElement("h1")
-toDoListHeader.textContent = "To Do List"
-toDoListHeader.style.textAlign = "center"
-const div = document.createElement("div");
-const forma = document.createElement("form");
-const firstInt = document.createElement("input");
-const secondInt = document.createElement("select");
-const highOption = document.createElement("option");
-const mediumOption = document.createElement("option");
-const lowOption = document.createElement("option");
-const appendBtn = document.createElement("button");
 const table = document.createElement("table");
 const thead = document.createElement("thead");
 const tbody = document.createElement("tbody");
 
-firstInt.style.backgroundColor = "pink";
-firstInt.style.width = "300px";
-firstInt.style.height = "30px";
-firstInt.style.borderRadius = "10px";
+toDoListH1.textContent = "To Do List"
+toDoListH1.style.textAlign = "center"
 
-secondInt.style.backgroundColor = "pink";
-secondInt.style.borderRadius = "10px";
-secondInt.style.height = "35px";
+toDoInput.style.width = "300px";
+toDoInput.style.height = "25px";
+toDoPriority.style.height = "30px";
+addToListButton.style.height = "30px";
 
-appendBtn.style.backgroundColor = "pink";
-appendBtn.style.borderRadius = "10px";
-appendBtn.style.height = "35px";
-
-document.body.append(div);
-
-div.append(toDoListHeader, forma);
-forma.appendChild(firstInt);
-forma.appendChild(secondInt);
-forma.appendChild(appendBtn);
-div.appendChild(table);
-table.appendChild(thead);
-table.appendChild(tbody);
+document.body.append(toDoListContainer);
+toDoListContainer.append(toDoListH1, toDoForm);
+toDoForm.append(toDoInput, toDoPriority, addToListButton);
+toDoListContainer.append(table);
+table.append(thead);
+table.append(tbody);
 
 thead.innerHTML =
   "<tr><th id='uzduotisHeader'>Užduotis</th><th id='svarbaHeader'>Svarba</th><th id='deleteHeader'></th></tr>";
 
-document.getElementById("deleteHeader").textContent = "";
+// document.getElementById("deleteHeader").textContent = "";
 
 document.getElementById("uzduotisHeader").style.paddingRight = "50px";
 document.getElementById("svarbaHeader").style.paddingRight = "50px";
@@ -72,26 +43,24 @@ document.getElementById("svarbaHeader").style.borderBottom = "2px solid black";
 
 table.style.borderBottom = "2px solid black";
 
-appendBtn.textContent = "Prideti";
+addToListButton.textContent = "Add";
 
-highOption.value = "high";
-highOption.textContent = "High";
+toDoPriorityHigh.value = "high";
+toDoPriorityHigh.textContent = "High";
+toDoPriorityMedium.value = "medium";
+toDoPriorityMedium.textContent = "Medium";
+toDoPriorityLow.value = "low";
+toDoPriorityLow.textContent = "Low";
 
-mediumOption.value = "medium";
-mediumOption.textContent = "Medium";
+toDoPriority.appendChild(toDoPriorityHigh);
+toDoPriority.appendChild(toDoPriorityMedium);
+toDoPriority.appendChild(toDoPriorityLow);
 
-lowOption.value = "low";
-lowOption.textContent = "Low";
-
-secondInt.appendChild(highOption);
-secondInt.appendChild(mediumOption);
-secondInt.appendChild(lowOption);
-
-appendBtn.addEventListener("click", function (event) {
+addToListButton.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const firstInputValue = firstInt.value;
-  const secondInputValue = secondInt.value;
+  const firstInputValue = toDoInput.value;
+  const secondInputValue = toDoPriority.value;
 
   if (firstInputValue.trim() === "" || secondInputValue.trim() === "") {
     alert("Iveskite kokia uzduoti norite prideti.");
@@ -180,7 +149,7 @@ function updateTable() {
 
     tbody.appendChild(newRow);
   });
-  firstInt.value = "";
+  toDoInput.value = "";
 }
 
 updateTable();
