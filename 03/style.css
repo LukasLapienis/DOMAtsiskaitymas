@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+.toDoInput {
+    display: flex;
+    justify-content: center;
+}
+
+.toDoInputItem {
+    width: 300px;
+}
