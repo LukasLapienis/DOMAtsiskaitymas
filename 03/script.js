@@ -19,7 +19,7 @@ listTable.style.border = "1px solid black"
 listTable.style.borderCollapse = "collapse"
 
 function displayList() {
-  listTable.innerHTML = ""
+  listTable.innerHTML = "" 
   
   const listTableHeader = document.createElement("thead")
   const listTableHeaderRow = document.createElement("tr")
@@ -31,12 +31,10 @@ function displayList() {
   listTableTh3.textContent = "Priority"
   const listTableTh4 = document.createElement("th")
   listTableTh4.textContent = "Edit"
-  const listTableTh5 = document.createElement("th")
-  listTableTh5.textContent = "Delete"
   const listTableBody = document.createElement("tbody")
 
   listTableHeader.append(listTableHeaderRow)
-  listTableHeaderRow.append(listTableTh1, listTableTh2, listTableTh3, listTableTh4, listTableTh5)
+  listTableHeaderRow.append(listTableTh1, listTableTh2, listTableTh3, listTableTh4)
   listTable.append(listTableHeader, listTableBody)
 
   for (let i = 0; i < toDoItemsArray.length; i++) {
