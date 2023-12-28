@@ -41,6 +41,15 @@ function displayList() {
     listItemPriority.textContent = toDoItemsArray[i].priority
     listItemPriority.style.textAlign = "center"
     listItemPriority.style.width = "80px"
+    if (toDoItemsArray[i].priority === "high") {
+      listItemPriority.style.color = "red"
+    }
+    else if (toDoItemsArray[i].priority === "medium") {
+      listItemPriority.style.color = "orange"
+    }
+    else {
+      listItemPriority.style.color = "green"
+    }
 
     const listItemEdit = document.createElement("td")
     listItemEdit.setAttribute("class", "fa-solid fa-pen-to-square")
