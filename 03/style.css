@@ -2,15 +2,23 @@
     box-sizing: border-box;
 }
 
-h1 {
-    text-align: center;
-}
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
 
 .toDoInput {
     display: flex;
-    justify-content: center;
+}
+
+table, td {
+    border-collapse: collapse;
+    border: 1px solid black
 }
 
 .toDoInputItem {
     width: 300px;
 }
+
+
