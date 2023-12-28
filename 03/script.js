@@ -1,6 +1,5 @@
 "use strict";
 
-
 const toDoItemsArray = localStorage.getItem("toDoItems") ? JSON.parse(localStorage.getItem("toDoItems")) : []
 
 function newItemAdd(inputItem, priority) {
@@ -13,6 +12,7 @@ function newItemAdd(inputItem, priority) {
   localStorage.setItem("toDoItems", JSON.stringify(toDoItemsArray))
 }
 
+
 const list = document.querySelector(".toDoList")
 const listTable = document.createElement("table")
 listTable.style.border = "1px solid black"
@@ -20,6 +20,24 @@ listTable.style.borderCollapse = "collapse"
 
 function displayList() {
   listTable.innerHTML = ""
+  
+  const listTableHeader = document.createElement("thead")
+  const listTableHeaderRow = document.createElement("tr")
+  const listTableTh1 = document.createElement("th")
+  listTableTh1.textContent = "Status"
+  const listTableTh2 = document.createElement("th")
+  listTableTh2.textContent = "Task"
+  const listTableTh3 = document.createElement("th")
+  listTableTh3.textContent = "Priority"
+  const listTableTh4 = document.createElement("th")
+  listTableTh4.textContent = "Edit"
+  const listTableTh5 = document.createElement("th")
+  listTableTh5.textContent = "Delete"
+  const listTableBody = document.createElement("tbody")
+
+  listTableHeader.append(listTableHeaderRow)
+  listTableHeaderRow.append(listTableTh1, listTableTh2, listTableTh3, listTableTh4, listTableTh5)
+  listTable.append(listTableHeader, listTableBody)
 
   for (let i = 0; i < toDoItemsArray.length; i++) {
     const listItem = document.createElement("tr")
@@ -28,7 +46,7 @@ function displayList() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = toDoItemsArray[i].isDone === "Yes";
-    listItemCheckbox.appendChild(checkbox);
+    listItemCheckbox.append(checkbox);
 
     const listItemText = document.createElement("td")
     listItemText.textContent = toDoItemsArray[i].value
@@ -102,9 +120,9 @@ function displayList() {
       toDoItemsArray.splice(i, 1)
       localStorage.setItem("toDoItems", JSON.stringify(toDoItemsArray))
     })
-
+      
     listItem.append(listItemCheckbox, listItemText, listItemPriority, listItemEdit, listItemDelete)
-    listTable.append(listItem)
+    listTableBody.append(listItem)
     list.append(listTable)
   }
 }
