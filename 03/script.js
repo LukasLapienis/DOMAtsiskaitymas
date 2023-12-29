@@ -2,6 +2,14 @@
 
 const toDoItemsArray = localStorage.getItem("toDoItems") ? JSON.parse(localStorage.getItem("toDoItems")) : []
 
+function hideIfEmpty() {
+  if (toDoItemsArray.length === 0) {
+    listTable.style.display = 'none';
+  } else {
+    listTable.style.display = 'table';
+  }
+}
+
 function newItemAdd(inputItem, priority) {
   const newItem = {
     isDone: "No",
@@ -19,8 +27,8 @@ listTable.style.border = "1px solid black"
 listTable.style.borderCollapse = "collapse"
 
 function displayList() {
-  listTable.innerHTML = "" 
-  
+  listTable.innerHTML = ""
+
   const listTableHeader = document.createElement("thead")
   const listTableHeaderRow = document.createElement("tr")
   const listTableTh1 = document.createElement("th")
@@ -116,6 +124,7 @@ function displayList() {
     listItemDelete.addEventListener("click", () => {
       listItem.remove()
       toDoItemsArray.splice(i, 1)
+      hideIfEmpty()
       localStorage.setItem("toDoItems", JSON.stringify(toDoItemsArray))
     })
       
@@ -136,6 +145,7 @@ document.querySelector(".toDoInputAdd").addEventListener("click", e => {
   const priority = document.querySelector(".toDoInputPriority")
   newItemAdd(inputItem, priority)
   displayList()
+  hideIfEmpty()
 })
 
 displayList()
