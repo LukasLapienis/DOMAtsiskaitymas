@@ -137,11 +137,6 @@ function displayList() {
 // add to list EventListener 
 document.querySelector(".toDoInputAdd").addEventListener("click", e => {
   e.preventDefault()
-  localStorage.clear()
-  if (toDoItemsArray.length > 0) {
-    const table = document.querySelector("table")
-    table.remove()
-  }
   const inputItem = document.querySelector(".toDoInputItem")
   const priority = document.querySelector(".toDoInputPriority")
   newItemAdd(inputItem, priority)
