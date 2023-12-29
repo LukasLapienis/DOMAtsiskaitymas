@@ -134,6 +134,7 @@ function displayList() {
   }
 }
 
+// add to list EventListener 
 document.querySelector(".toDoInputAdd").addEventListener("click", e => {
   e.preventDefault()
   localStorage.clear()
