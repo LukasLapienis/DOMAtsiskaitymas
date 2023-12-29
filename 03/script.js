@@ -147,6 +147,7 @@ document.querySelector(".toDoInputAdd").addEventListener("click", e => {
   newItemAdd(inputItem, priority)
   displayList()
   hideIfEmpty()
+  inputItem.value = ""
 })
 
 displayList()
