@@ -126,6 +126,7 @@ function displayList() {
       toDoItemsArray.splice(i, 1)
       hideIfEmpty()
       localStorage.setItem("toDoItems", JSON.stringify(toDoItemsArray))
+      displayList()
     })
       
     listItem.append(listItemCheckbox, listItemText, listItemPriority, listItemEdit, listItemDelete)
